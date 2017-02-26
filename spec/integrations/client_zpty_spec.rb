@@ -4,6 +4,7 @@ describe 'a running zpty command' do
   it 'is not affected by running zsh-autosuggestions' do
     sleep 1 # Give a little time for precmd hooks to run
     session.run_command('zpty -t kitty; echo $?')
+    sleep 1
 
     wait_for(session.content).to end_with("\n0")
   end
